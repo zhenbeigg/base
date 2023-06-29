@@ -10,8 +10,8 @@
             "Eykj\\Base\\": "src/"
         },
         "files": [
-            "src/Functions.php",
-            "src/PhpFunc.php"
+            "src/Common/Functions.php",
+            "src/Common/PhpFunc.php"
         ]
     }
 }
