@@ -4,5 +4,14 @@
     "license": "MIT",
     "keywords": [
         "eykj"
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Eykj\\Base\\": "src/"
+        },
+        "files": [
+            "src/Functions.php",
+            "src/PhpFunc.php"
+        ]
+    }
 }
