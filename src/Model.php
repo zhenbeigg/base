@@ -14,7 +14,7 @@ namespace Eykj\Base;
 
 use Hyperf\DbConnection\Model\Model as BaseModel;
 use Hyperf\Di\Annotation\Inject;
-use App\Core\CreateTable;
+use Eykj\Base\CreateTable;
 use Hyperf\HttpServer\Contract\RequestInterface;
 
 abstract class Model extends BaseModel
