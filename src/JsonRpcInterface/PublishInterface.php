@@ -4,7 +4,6 @@
  * @name: 云一发布jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-09-14 08:50:18
- * @FilePath: \eyc3_device\app\Core\JsonRpcInterface\PublishInterface.php
  */
 
 declare(strict_types=1);

@@ -4,7 +4,6 @@
  * @name: 类名
  * @desc: 介绍
  * @LastEditTime: 2022-11-04 20:24:59
- * @FilePath: \eyc3_canyin\app\Core\Middleware\CorsMiddleware.php
  */
 
 declare(strict_types=1);

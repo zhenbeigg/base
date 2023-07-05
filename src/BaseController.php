@@ -5,7 +5,6 @@
  * @name: 接口基类
  * @desc: 介绍
  * @LastEditTime: 2022-12-19 11:27:26
- * @FilePath: \eyc3_canyin\app\Core\BaseController.php
  */
 
 declare(strict_types=1);

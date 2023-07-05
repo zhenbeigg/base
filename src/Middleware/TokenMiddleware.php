@@ -4,7 +4,6 @@
  * @name: 中间件-验证token
  * @desc: 介绍
  * @LastEditTime: 2022-08-16 22:07:44
- * @FilePath: \eyc3_canyin\app\Core\Middleware\TokenMiddleware.php
  */
 
 declare(strict_types=1);

@@ -5,7 +5,6 @@
  * @name: 数据模型类
  * @desc: 介绍
  * @LastEditTime: 2023-06-29 22:17:52
- * @FilePath: \base\src\Model.php
  */
 
 declare(strict_types=1);

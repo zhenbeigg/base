@@ -4,14 +4,13 @@
  * @name: 云一文件
  * @desc: 介绍
  * @LastEditTime: 2023-05-12 16:29:13
- * @FilePath: \eyc3_car\app\Core\JsonRpcInterface\FileInterface.php
  */
 declare(strict_types=1);
 
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\FileServiceInterface;
+use Eykj\Base\JsonRpcInterface\FileServiceInterface;
 
 class FileInterface
 {

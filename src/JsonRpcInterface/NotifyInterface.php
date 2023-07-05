@@ -5,7 +5,6 @@
  * @name: 通知jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-11-22 18:42:23
- * @FilePath: \eyc3_user\app\Core\JsonRpcInterface\NotifyInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\NotifyServiceInterface;
+use Eykj\Base\JsonRpcInterface\NotifyServiceInterface;
 
 class NotifyInterface
 {

@@ -4,7 +4,6 @@
  * @name: 云一会议jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-12-17 15:47:35
- * @FilePath: \eyc3_meeting\app\Core\JsonRpcInterface\MeetingServiceInterface.php
  */
 
 declare(strict_types=1);

@@ -2,7 +2,7 @@
 /*
  * @author: 
  * @name: jsonrpc接口类
- * @desc: 云一文件
+ * @desc: 文件服务
  */
 
 declare(strict_types=1);

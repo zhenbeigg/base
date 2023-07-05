@@ -4,7 +4,6 @@
  * @name: 审批中心
  * @desc: 介绍
  * @LastEditTime: 2022-05-23 11:47:27
- * @FilePath: \eyc3_guard\app\Core\JsonRpcInterface\ApproveServiceInterface.php
  */
 
 declare(strict_types=1);

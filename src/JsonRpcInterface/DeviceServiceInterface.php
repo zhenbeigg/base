@@ -4,7 +4,6 @@
  * @name: 设备中心jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-09-07 16:49:04
- * @FilePath: \eyc3_user\app\Core\JsonRpcInterface\DeviceServiceInterface.php
  */
 
 declare(strict_types=1);

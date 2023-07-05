@@ -4,7 +4,6 @@
  * @name:  创建表类
  * @desc: 介绍
  * @LastEditTime: 2023-06-16 13:10:05
- * @FilePath: \eyc3_canyin\app\Core\CreateTable.php
  */
 
 declare(strict_types=1);

@@ -4,7 +4,6 @@
  * @name: 云一访客
  * @desc: 介绍
  * @LastEditTime: 2022-06-09 20:41:02
- * @FilePath: \eyc3_user\app\Core\JsonRpcInterface\VisitorServiceInterface.php
  */
 
 declare(strict_types=1);

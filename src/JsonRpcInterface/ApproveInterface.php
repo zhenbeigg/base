@@ -5,7 +5,6 @@
  * @name: 审批中心
  * @desc: 介绍
  * @LastEditTime: 2022-11-02 15:20:23
- * @FilePath: \eyc3_canyin\app\Core\JsonRpcInterface\ApproveInterface.php
  */
 
 declare(strict_types=1);

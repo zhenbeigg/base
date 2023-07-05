@@ -4,7 +4,6 @@
  * @name: 云三智造jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-09-14 08:50:18
- * @FilePath: \eyc3_device\app\Core\JsonRpcInterface\ProduceInterface.php
  */
 
 declare(strict_types=1);
@@ -12,7 +11,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\ProduceServiceInterface;
+use Eykj\Base\JsonRpcInterface\ProduceServiceInterface;
 
 class ProduceInterface
 {

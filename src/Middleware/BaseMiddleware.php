@@ -4,7 +4,6 @@
  * @name: 中间件-全局中间件
  * @desc: 介绍
  * @LastEditTime: 2022-11-04 19:38:40
- * @FilePath: \eyc3_canyin\app\Core\Middleware\BaseMiddleware.php
  */
 
 declare(strict_types=1);

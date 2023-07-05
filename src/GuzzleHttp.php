@@ -5,7 +5,6 @@
  * @name: GuzzleHttp请求类
  * @desc: 介绍
  * @LastEditTime: 2023-05-23 16:06:40
- * @FilePath: \eyc3_notify\app\Core\GuzzleHttp.php
  */
 
 namespace Eykj\Base;

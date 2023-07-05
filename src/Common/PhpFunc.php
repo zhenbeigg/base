@@ -4,7 +4,6 @@
  * @name: 通用函数
  * @desc: 介绍
  * @LastEditTime: 2023-06-26 17:03:07
- * @FilePath: \eyc3_notify\app\Core\Common\PhpFunc.php
  */
 
 declare(strict_types=1);

@@ -4,7 +4,6 @@
  * @name: 通用函数
  * @desc: 介绍
  * @LastEditTime: 2023-07-05 21:10:16
- * @FilePath: \base\src\Common\Functions.php
  */
 
 declare(strict_types=1);

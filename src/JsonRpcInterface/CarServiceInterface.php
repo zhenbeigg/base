@@ -4,7 +4,6 @@
  * @name: jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-06-16 17:40:32
- * @FilePath: \eyc3_car\app\Core\JsonRpcInterface\CarServiceInterface.php
  */
 
 declare(strict_types=1);

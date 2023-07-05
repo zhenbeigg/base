@@ -4,7 +4,6 @@
  * @name: 授权中心
  * @desc: 介绍
  * @LastEditTime: 2022-09-05 18:52:58
- * @FilePath: \eyc3_auth\app\Core\JsonRpcInterface\AuthServiceInterface.php
  */
 
 declare(strict_types=1);

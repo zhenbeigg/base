@@ -4,7 +4,6 @@
  * @name: 就餐jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-11-22 19:34:38
- * @FilePath: \eyc3_canyin\app\Core\JsonRpcInterface\CanyinServiceInterface.php
  */
 
 declare(strict_types=1);

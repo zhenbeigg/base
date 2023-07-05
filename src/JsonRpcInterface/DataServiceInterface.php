@@ -4,7 +4,6 @@
  * @name: 数据中心
  * @desc: 介绍
  * @LastEditTime: 2022-11-21 15:08:29
- * @FilePath: \eyc3_data\app\Core\JsonRpcInterface\DataServiceInterface.php
  */
 
 declare(strict_types=1);

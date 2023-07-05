@@ -5,7 +5,6 @@
  * @name: 设备中心jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2023-03-22 21:26:06
- * @FilePath: \eyc3_oapi\app\Core\JsonRpcInterface\DeviceInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\DeviceServiceInterface;
+use Eykj\Base\JsonRpcInterface\DeviceServiceInterface;
 
 class DeviceInterface
 {

@@ -5,7 +5,6 @@
  * @name: 云一门岗
  * @desc: 介绍
  * @LastEditTime: 2022-08-08 02:45:03
- * @FilePath: \eyc3_device\app\Core\JsonRpcInterface\GuardInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\GuardServiceInterface;
+use Eykj\Base\JsonRpcInterface\GuardServiceInterface;
 
 class GuardInterface
 {

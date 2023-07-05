@@ -4,7 +4,6 @@
  * @name: 用户中心jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2023-01-02 16:32:42
- * @FilePath: \eyc3_canyin\app\Core\JsonRpcInterface\UserServiceInterface.php
  */
 
 declare(strict_types=1);

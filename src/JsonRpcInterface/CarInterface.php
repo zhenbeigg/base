@@ -5,7 +5,6 @@
  * @name: 云一门岗
  * @desc: 介绍
  * @LastEditTime: 2022-11-11 22:53:05
- * @FilePath: \eyc3_visitor\app\Core\JsonRpcInterface\CarInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\CarServiceInterface;
+use Eykj\Base\JsonRpcInterface\CarServiceInterface;
 
 class CarInterface
 {

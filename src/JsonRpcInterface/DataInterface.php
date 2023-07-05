@@ -5,7 +5,6 @@
  * @name: 数据中心
  * @desc: 介绍
  * @LastEditTime: 2022-11-21 15:00:44
- * @FilePath: \eyc3_data\app\Core\JsonRpcInterface\DataInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\DataServiceInterface;
+use Eykj\Base\JsonRpcInterface\DataServiceInterface;
 
 class DataInterface
 {

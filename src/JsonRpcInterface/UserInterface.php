@@ -5,7 +5,6 @@
  * @name: 用户中心jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2023-01-02 16:32:33
- * @FilePath: \eyc3_canyin\app\Core\JsonRpcInterface\UserInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\UserServiceInterface;
+use Eykj\Base\JsonRpcInterface\UserServiceInterface;
 
 class UserInterface
 {

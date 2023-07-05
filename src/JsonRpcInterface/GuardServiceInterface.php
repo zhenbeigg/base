@@ -4,7 +4,6 @@
  * @name: jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-07-21 12:37:35
- * @FilePath: \eyc3_guard\app\Core\JsonRpcInterface\GuardServiceInterface.php
  */
 
 declare(strict_types=1);

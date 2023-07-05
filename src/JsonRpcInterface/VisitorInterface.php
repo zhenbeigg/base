@@ -5,7 +5,6 @@
  * @name: 云一访客
  * @desc: 介绍
  * @LastEditTime: 2023-03-10 11:06:14
- * @FilePath: \eyc3_canyin\app\Core\JsonRpcInterface\VisitorInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\VisitorServiceInterface;
+use Eykj\Base\JsonRpcInterface\VisitorServiceInterface;
 
 class VisitorInterface
 {

@@ -5,7 +5,6 @@
  * @name: 云一会议jsonrpc接口类
  * @desc: 介绍
  * @LastEditTime: 2022-08-08 02:41:10
- * @FilePath: \eyc3_device\app\Core\JsonRpcInterface\MeetingInterface.php
  */
 
 declare(strict_types=1);
@@ -13,7 +12,7 @@ declare(strict_types=1);
 namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
-use App\Core\JsonRpcInterface\MeetingServiceInterface;
+use Eykj\Base\JsonRpcInterface\MeetingServiceInterface;
 
 class MeetingInterface
 {
