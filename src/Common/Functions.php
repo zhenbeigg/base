@@ -3,8 +3,8 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2023-06-12 11:46:10
- * @FilePath: \eyc3_canyin\app\Core\Common\Functions.php
+ * @LastEditTime: 2023-07-05 21:10:16
+ * @FilePath: \base\src\Common\Functions.php
  */
 
 declare(strict_types=1);
@@ -24,6 +24,7 @@ use App\Exception\EyCException;
 use Ym\AliyunSls\ClientInterface;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Context\ApplicationContext;
+use function Hyperf\Support\env;
 
 if (!function_exists('container')) {
     /**
@@ -674,19 +675,6 @@ if (!function_exists('string_character_handle')) {
         } else {
             return true;
         }
-    }
-}
-
-if (!function_exists('env')) {
-    /**
-     * @brief 重写 获取系统配置
-     * @param string $key 字段key
-     * @param bool $default 默认值
-     * @return mixed $r 返回数据
-     */
-    function env($key, $default = null)
-    {
-        return container()->get(Hyperf\Support\env($key, $default));
     }
 }
 
