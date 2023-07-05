@@ -1,18 +1,11 @@
 <?php
 /*
  * @author: 布尔
- * @name: 类名
+ * @name: 云一文件
  * @desc: 介绍
  * @LastEditTime: 2023-05-12 16:29:13
  * @FilePath: \eyc3_car\app\Core\JsonRpcInterface\FileInterface.php
  */
-
-/*
- * @author: 
- * @name: 云一文件
- * @desc: 
- */
-
 declare(strict_types=1);
 
 namespace Eykj\Base\JsonRpcInterface;

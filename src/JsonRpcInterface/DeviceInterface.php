@@ -14,7 +14,6 @@ namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
 use App\Core\JsonRpcInterface\DeviceServiceInterface;
-use Hyperf\Retry\Annotation\Retry;
 
 class DeviceInterface
 {

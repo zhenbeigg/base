@@ -14,7 +14,6 @@ namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
 use App\Core\JsonRpcInterface\GuardServiceInterface;
-use Hyperf\Retry\Annotation\Retry;
 
 class GuardInterface
 {
@@ -126,7 +125,6 @@ class GuardInterface
         return $this->Service->get_all($type, $param, $key);
     }
     /**
-     * #[Retry()]
      * @author: 布尔
      * @name: 魔点设备回调
      * @param {array} $param [corpid:1|机构corpid,types:1|授权类型,corp_product:1|应用类型,userid:1|人员userid,device_info:1|设备信息]

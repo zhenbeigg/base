@@ -14,7 +14,6 @@ namespace Eykj\Base\JsonRpcInterface;
 
 use Hyperf\Di\Annotation\Inject;
 use App\Core\JsonRpcInterface\UserServiceInterface;
-use Hyperf\Retry\Annotation\Retry;
 
 class UserInterface
 {
@@ -91,7 +90,6 @@ class UserInterface
         }
     }
     /**
-     * #[Retry()]
      * @author: 风源
      * @name: 获取用户详情（带部门路径）
      * @param {array} $param [corpid:1|机构corpid,userid:1|用户useid]
