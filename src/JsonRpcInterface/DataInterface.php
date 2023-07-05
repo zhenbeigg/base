@@ -11,14 +11,17 @@ declare(strict_types=1);
 
 namespace Eykj\Base\JsonRpcInterface;
 
-use Hyperf\Di\Annotation\Inject;
 use Eykj\Base\JsonRpcInterface\DataServiceInterface;
 
 class DataInterface
 {
+    private ?DataServiceInterface $Service;
 
-    #[Inject]
-    protected DataServiceInterface $Service;
+    // 通过设置参数为 nullable，表明该参数为一个可选参数
+    public function __construct(?DataServiceInterface $Service)
+    {
+        $this->Service = $Service;
+    }
     /**
      * @author: 布尔
      * @name: 详情

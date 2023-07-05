@@ -4,21 +4,25 @@
  * @author: 布尔
  * @name: 审批中心
  * @desc: 介绍
- * @LastEditTime: 2022-11-02 15:20:23
+ * @LastEditTime: 2023-07-05 22:09:33
  */
 
 declare(strict_types=1);
 
 namespace Eykj\Base\JsonRpcInterface;
 
-use Hyperf\Di\Annotation\Inject;
 use Eykj\Base\JsonRpcInterface\ApproveServiceInterface;
 
 class ApproveInterface
 {
+    private ?ApproveServiceInterface $Service;
 
-    #[Inject]
-    protected ApproveServiceInterface $Service;
+    // 通过设置参数为 nullable，表明该参数为一个可选参数
+    public function __construct(?ApproveServiceInterface $Service)
+    {
+        $this->Service = $Service;
+    }
+
     /**
      * @author: 布尔
      * @name: 添加

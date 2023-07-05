@@ -9,14 +9,17 @@ declare(strict_types=1);
 
 namespace Eykj\Base\JsonRpcInterface;
 
-use Hyperf\Di\Annotation\Inject;
 use Eykj\Base\JsonRpcInterface\FileServiceInterface;
 
 class FileInterface
 {
+    private ?FileServiceInterface $Service;
 
-    #[Inject]
-    protected FileServiceInterface $Service;
+    // 通过设置参数为 nullable，表明该参数为一个可选参数
+    public function __construct(?FileServiceInterface $Service)
+    {
+        $this->Service = $Service;
+    }
     /**
      * @author: 布尔
      * @name: 文件上传

@@ -11,14 +11,17 @@ declare(strict_types=1);
 
 namespace Eykj\Base\JsonRpcInterface;
 
-use Hyperf\Di\Annotation\Inject;
 use Eykj\Base\JsonRpcInterface\FaceServiceInterface;
 
 class FaceInterface
 {
+    private ?FaceServiceInterface $Service;
 
-    #[Inject]
-    protected FaceServiceInterface $Service;
+    // 通过设置参数为 nullable，表明该参数为一个可选参数
+    public function __construct(?FaceServiceInterface $Service)
+    {
+        $this->Service = $Service;
+    }
     /**
      * @author: 风源
      * @name: 添加人脸
