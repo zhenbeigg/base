@@ -9,14 +9,19 @@
 
 namespace Eykj\Base;
 
-use Hyperf\Di\Annotation\Inject;
 use Hyperf\Guzzle\ClientFactory;
 
 class GuzzleHttp
 {
 
-    #[Inject]
-    private ClientFactory $clientFactory;
+    private ?ClientFactory $clientFactory;
+
+    // 通过设置参数为 nullable，表明该参数为一个可选参数
+    public function __construct(?clientFactory $clientFactory)
+    {
+        $this->clientFactory = $clientFactory;
+    }
+
     /**
      * @author: 布尔
      * @name: get请求方法

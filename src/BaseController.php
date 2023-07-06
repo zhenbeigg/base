@@ -11,18 +11,23 @@ declare(strict_types=1);
 
 namespace Eykj\Base;
 
-use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 
 abstract class BaseController
 {
 
-    #[Inject]
-    protected RequestInterface $request;
+    private ?RequestInterface $request;
 
-    #[Inject]
-    protected ResponseInterface $response;
+    private ?ResponseInterface $response;
+
+    // 通过设置参数为 nullable，表明该参数为一个可选参数
+    public function __construct(?RequestInterface $request, ?ResponseInterface $response)
+    {
+        $this->request = $request;
+        $this->response = $response;
+    }
+
     /**
      * @author: 布尔
      * @name: 获取request数据插入数组

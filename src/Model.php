@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 数据模型类
  * @desc: 介绍
- * @LastEditTime: 2023-06-29 22:17:52
+ * @LastEditTime: 2023-07-06 19:18:15
  */
 
 declare(strict_types=1);
@@ -28,13 +28,12 @@ abstract class Model extends BaseModel
      */
     protected $CreateTable;
 
-    public function __construct(RequestInterface $request, CreateTable $CreateTable)
+    public function __construct()
     {
         parent::__construct();
-        $this->CreateTable = $CreateTable;
-        $this->request = $request;
+        $this->CreateTable = new CreateTable();
+        $this->request = new RequestInterface();
     }
-
     /**
      * 是否做表拆分
      *
