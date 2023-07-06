@@ -30,6 +30,7 @@ abstract class Model extends BaseModel
 
     public function __construct(RequestInterface $request, CreateTable $CreateTable)
     {
+        parent::__construct();
         $this->CreateTable = $CreateTable;
         $this->request = $request;
     }
