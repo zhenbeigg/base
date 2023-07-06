@@ -13,16 +13,9 @@ namespace Eykj\Base;
 
 use Hyperf\DbConnection\Model\Model as BaseModel;
 use Eykj\Base\CreateTable;
-use Hyperf\HttpServer\Contract\RequestInterface;
 
 abstract class Model extends BaseModel
 {
-
-    /**
-     * @var RequestInterface
-     */
-    protected $request;
-
     /**
      * @var CreateTable
      */
@@ -32,7 +25,6 @@ abstract class Model extends BaseModel
     {
         parent::__construct();
         $this->CreateTable = new CreateTable();
-        $this->request = new RequestInterface();
     }
     /**
      * 是否做表拆分
@@ -103,7 +95,7 @@ abstract class Model extends BaseModel
                 $cache_key[] = $order;
             }
             if (!$page) {
-                $page = (int)$this->request->input('page');
+                $page = (int)request()->input('page');
             }
             $cache_key[] = $page;
             if ($distinct) {
