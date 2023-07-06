@@ -6,15 +6,14 @@
         "eykj"
     ],
     "require": {
-        "eykj/aliyun-sls": "^0.0.1"
     },
     "autoload": {
         "psr-4": {
             "Eykj\\Base\\": "src/"
         },
         "files": [
-            "src/Common/Functions.php",
-            "src/Common/PhpFunc.php"
+            "src/Functions.php",
+            "src/PhpFunc.php"
         ]
     }
 }
