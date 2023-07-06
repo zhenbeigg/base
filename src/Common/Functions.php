@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2023-07-05 21:10:16
+ * @LastEditTime: 2023-07-06 09:36:31
  */
 
 declare(strict_types=1);
@@ -20,7 +20,7 @@ use Swoole\Websocket\Frame;
 use Swoole\WebSocket\Server as WebSocketServer;
 use App\Constants\ErrorCode;
 use App\Exception\EyCException;
-use Ym\AliyunSls\ClientInterface;
+use Eykj\AliyunSls\ClientInterface;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Context\ApplicationContext;
 use function Hyperf\Support\env;
