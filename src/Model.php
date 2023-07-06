@@ -12,17 +12,28 @@ declare(strict_types=1);
 namespace Eykj\Base;
 
 use Hyperf\DbConnection\Model\Model as BaseModel;
-use Hyperf\Di\Annotation\Inject;
 use Eykj\Base\CreateTable;
 use Hyperf\HttpServer\Contract\RequestInterface;
 
 abstract class Model extends BaseModel
 {
-    #[Inject]
-    protected RequestInterface $request;
 
-    #[Inject]
-    protected CreateTable $CreateTable;
+    /**
+     * @var RequestInterface
+     */
+    protected $request;
+
+    /**
+     * @var CreateTable
+     */
+    protected $CreateTable;
+
+    public function __construct(RequestInterface $request, CreateTable $CreateTable)
+    {
+        $this->CreateTable = $CreateTable;
+        $this->request = $request;
+    }
+
     /**
      * 是否做表拆分
      *
