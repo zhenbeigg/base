@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 就餐jsonrpc接口类
  * @desc: 介绍
- * @LastEditTime: 2022-11-22 18:42:23
+ * @LastEditTime: 2023-07-17 14:59:20
  */
 
 declare(strict_types=1);
@@ -128,5 +128,48 @@ class CanyinInterface
     public function post_del(string $type, array $param): int
     {
         return $this->Service->post_del($type, $param);
+    }
+    /**
+     * @author: 布尔
+     * @name: 删除开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_del(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_del($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_add(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_add($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_data_modify(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_data_modify($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 查询日餐时就餐数据
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_date_repast_dine_data(array $param)
+    {
+        return $this->Service->get_date_repast_dine_data($param);
     }
 }

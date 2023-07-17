@@ -64,4 +64,36 @@ interface VisitorServiceInterface
      * @return {array}
      */
     public function get_all(string $type, array $param, array $key = []): array;
+    /**
+     * @author: 布尔
+     * @name: 删除开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_del(array $param);
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_add(array $param);
+
+    /**
+     * @author: 布尔
+     * @name: 修改开放平台授权组
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_data_modify(array $param);
+
+
+    /**
+     * @author: 布尔
+     * @name: 查询日来访人数据
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_date_visit_data(array $param);
 }

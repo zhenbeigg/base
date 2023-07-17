@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 云一访客
  * @desc: 介绍
- * @LastEditTime: 2023-03-10 11:06:14
+ * @LastEditTime: 2023-07-17 15:03:46
  */
 
 declare(strict_types=1);
@@ -109,5 +109,48 @@ class VisitorInterface
         } catch (\Exception $e) {
             error($e->getCode(), $e->getMessage());
         }
+    }
+    /**
+     * @author: 布尔
+     * @name: 删除开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_del(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_del($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_add(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_add($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_data_modify(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_data_modify($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 查询日来访人数据
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_date_visit_data(array $param)
+    {
+        return $this->Service->get_date_visit_data($param);
     }
 }

@@ -103,4 +103,47 @@ class MeetingInterface
     {
         return $this->Service->post_add($type, $filter, $val);
     }
+    /**
+     * @author: 布尔
+     * @name: 删除开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_del(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_del($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_add(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_add($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_data_modify(array $param)
+    {
+        return $this->Service->post_oapi_datav_auth_data_modify($param);
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 询日预约数据
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_date_subscribe_data(array $param)
+    {
+        return $this->Service->get_date_subscribe_data($param);
+    }
 }

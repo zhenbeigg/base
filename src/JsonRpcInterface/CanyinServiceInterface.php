@@ -93,4 +93,34 @@ interface CanyinServiceInterface
      * @return {array}
      */
     public function post_del(string $type, array $param): int;
+    /**
+     * @author: 布尔
+     * @name: 删除开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_del(array $param);
+
+    /**
+     * @author: 布尔
+     * @name: 添加开放平台数据授权
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_add(array $param);
+
+    /**
+     * @author: 布尔
+     * @name: 修改开放平台授权组
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_oapi_datav_auth_data_modify(array $param);
+    /**
+     * @author: 布尔
+     * @name: 查询日餐时就餐数据
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_date_repast_dine_data(array $param);
 }
