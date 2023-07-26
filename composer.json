@@ -15,5 +15,8 @@
             "src/Functions.php",
             "src/PhpFunc.php"
         ]
+    },
+    "config": {
+        "sort-packages": true
     }
 }
