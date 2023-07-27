@@ -74,7 +74,7 @@ interface UserServiceInterface
      * @param {array} $param [corpid:1|机构corpid,dept_id|部门id,isleave|是否查询离职人员,userlst|用户及部门信息,keyword|搜索关键词,where|特殊查询条件]
      * @return {array} $r
      */
-    public function get_user_all(array $param): array;
+    public function get_user_all(array $param, array $key = []): array;
 
     /**
      * @author: 布尔
