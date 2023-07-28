@@ -4,17 +4,18 @@
  * @author: 布尔
  * @name: 数据模型类
  * @desc: 介绍
- * @LastEditTime: 2023-07-28 20:40:38
+ * @LastEditTime: 2023-07-28 20:50:35
  * @FilePath: \base\src\Model.php
  */
 
 declare(strict_types=1);
 
-namespace App\Core;
+namespace Eykj\Base;
 
 use Hyperf\DbConnection\Model\Model as BaseModel;
 use Hyperf\Database\Schema\Schema;
 use Hyperf\DbConnection\Db;
+use function Hyperf\Support\env;
 
 abstract class Model extends BaseModel
 {
