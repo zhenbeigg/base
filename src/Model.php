@@ -4,18 +4,19 @@
  * @author: 布尔
  * @name: 数据模型类
  * @desc: 介绍
- * @LastEditTime: 2023-07-28 19:31:54
- * @FilePath: \eyc3_user\app\Core\Model.php
+ * @LastEditTime: 2023-07-28 20:40:38
+ * @FilePath: \base\src\Model.php
  */
 
 declare(strict_types=1);
 
 namespace App\Core;
 
+use Hyperf\DbConnection\Model\Model as BaseModel;
 use Hyperf\Database\Schema\Schema;
 use Hyperf\DbConnection\Db;
 
-abstract class Model
+abstract class Model extends BaseModel
 {
     /**
      * 是否做表拆分
@@ -199,7 +200,7 @@ abstract class Model
             }
         }
         //如果有搜索关键字，不在查询范围
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         if ($key) {
             $query = $query->select($key);
         }
@@ -250,7 +251,7 @@ abstract class Model
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         if ($key) {
             $query = $query->select($key);
         }
@@ -332,7 +333,7 @@ abstract class Model
             }
         }
         //如果有搜索关键字，不在查询范围
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         if ($key) {
             $query = $query->select($key);
         }
@@ -422,7 +423,7 @@ abstract class Model
                 return $cache;
             }
         }
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         if ($key) {
             $query = $query->select($key);
         }
@@ -465,7 +466,7 @@ abstract class Model
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         if ($order) {
             $query = $this->order_format($query, $order);
         } else {
@@ -483,7 +484,7 @@ abstract class Model
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         return $query->exists();
     }
     /**
@@ -498,7 +499,7 @@ abstract class Model
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         if ($group) {
             $query = $query->groupBy($group);
         }
@@ -516,7 +517,7 @@ abstract class Model
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         return (float) $query->sum($val);
     }
     /**
@@ -574,7 +575,7 @@ abstract class Model
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         /* 检测数据锁 */
         $this->check_lock($query, $lock);
         $r = $query->update($val);
@@ -595,7 +596,7 @@ abstract class Model
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
-        $query = $this->filter_format(Db::table($this->table), $filter);
+        $query = $this->filter_format($this, $filter);
         /* 检测数据锁 */
         $this->check_lock($query, $lock);
         $r = $query->delete();
@@ -618,7 +619,7 @@ abstract class Model
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
         if ($filter) {
-            $query = $this->filter_format(Db::table($this->table), $filter);
+            $query = $this->filter_format($this, $filter);
             $r = $query->increment($key, $val);
         } else {
             $r = $this->increment($key, $val);
@@ -642,7 +643,7 @@ abstract class Model
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
         if ($filter) {
-            $query = $this->filter_format(Db::table($this->table), $filter);
+            $query = $this->filter_format($this, $filter);
             $r = $query->decrement($key, $val);
         } else {
             $r = $this->decrement($key, $val);
