@@ -40,11 +40,7 @@ abstract class Model extends BaseModel
      * @param string $target_table 目标表
      * @param string $table_comment 表注解
      */
-    public function post_create_table(
-        string $table_name,
-        string $target_table,
-        string $table_comment
-    ) {
+    public function post_create_table(string $table_name,string $target_table,string $table_comment) {
         if (!Schema::hasTable($table_name)) {
             /* 查询目标表结构 */
             $table_type_list = Schema::getColumnTypeListing($target_table);
@@ -118,7 +114,7 @@ abstract class Model extends BaseModel
                 $table_name = $this->target_table . '_' . get('corpid');
             }
             if (!redis()->get("split_table_" . $table_name)) {
-                $this->CreateTable->post_create_table($table_name, $this->target_table, $this->table_comment);
+                $this->post_create_table($table_name, $this->target_table, $this->table_comment);
                 redis()->set("split_table_" . $table_name, true);
             }
             /* 修改表名*/
