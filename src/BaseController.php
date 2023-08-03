@@ -12,20 +12,16 @@ declare(strict_types=1);
 namespace Eykj\Base;
 
 use Hyperf\HttpServer\Contract\RequestInterface;
-use Hyperf\HttpServer\Contract\ResponseInterface;
 
 abstract class BaseController
 {
 
     private ?RequestInterface $request;
 
-    private ?ResponseInterface $response;
-
     // 通过设置参数为 nullable，表明该参数为一个可选参数
-    public function __construct(?RequestInterface $request, ?ResponseInterface $response)
+    public function __construct(?RequestInterface $request)
     {
         $this->request = $request;
-        $this->response = $response;
     }
 
     /**
