@@ -16,7 +16,7 @@ use Hyperf\HttpServer\Contract\RequestInterface;
 abstract class BaseController
 {
 
-    private ?RequestInterface $request;
+    protected ?RequestInterface $request;
 
     // 通过设置参数为 nullable，表明该参数为一个可选参数
     public function __construct(?RequestInterface $request)
