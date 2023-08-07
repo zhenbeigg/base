@@ -52,6 +52,8 @@ class TokenMiddleware implements MiddlewareInterface
         } else {
             $token =  json_decode(json_encode(jwt_decode((string)$jwt[0])), true);
         }
+        /* 删除变量回收内存 */
+        unset($jwt);
         if (!$token || !$token['corpid']) {
             error(504);
         }
@@ -65,6 +67,8 @@ class TokenMiddleware implements MiddlewareInterface
         } else {
             set('admin', 0);
         }
+        /* 删除变量回收内存 */
+        unset($token);
         return $handler->handle($request);
     }
 }

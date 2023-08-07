@@ -52,11 +52,15 @@ class ConnectorMiddleware implements MiddlewareInterface
         }
         /* 查询账号 */
         $apikey_info = $this->OapiInterface->get_apikey_info(['apikey' => $apikey, 'corp_product' => 'visitor']);
+        /* 删除变量回收内存 */
+        unset($apikey);
         if (!$apikey_info) {
             error(523);
         }
         set('corpid', $apikey_info['corpid']);
         set('corp_product', $apikey_info['corp_product']);
+         /* 删除变量回收内存 */
+        unset($apikey_info);
         return $handler->handle($request);
     }
 }

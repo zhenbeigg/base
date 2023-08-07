@@ -67,6 +67,8 @@ abstract class BaseController
                 $arr[$key] = y_trim($this->request->input($val));
             }
         }
+        /* 删除变量回收内存 */
+        unset($d);
         $array = explode(",", $token_key);
         if (!$token_key) {
             $arr = array_merge($token, $arr);
@@ -85,6 +87,9 @@ abstract class BaseController
                 }
             }
         }
+        /* 删除变量回收内存 */
+        unset($array);
+        unset($token);
         return $arr ?? [];
     }
     /**

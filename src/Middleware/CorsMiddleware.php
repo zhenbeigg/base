@@ -30,7 +30,8 @@ class CorsMiddleware implements MiddlewareInterface
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             // Headers 可以根据实际情况进行改写。
             ->withHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization,content-type,accept,Access-Control-Allow-Origin,responseType,satoken');
-
+        /* 删除变量回收内存 */
+        unset($origin);
         Context::set(ResponseInterface::class, $response);
 
         if ($request->getMethod() == 'OPTIONS') {
