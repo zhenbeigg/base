@@ -40,9 +40,9 @@ class DeviceInterface
      * @param {string} $type
      * @return {*}
      */
-    public function get_ls(string $type, array $param, array $key = []): array
+    public function get_ls(string $type, array $param, array $key = [], int $per_page = 10, array $order = [], ?int $page = 0): array
     {
-        return $this->Service->get_ls($type, $param, $key);
+        return $this->Service->get_ls($type, $param, $key, $per_page, $order, $page);
     }
     /**
      * @author: 风源

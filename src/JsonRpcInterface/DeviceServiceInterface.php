@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 设备中心jsonrpc接口类
  * @desc: 介绍
- * @LastEditTime: 2022-09-07 16:49:04
+ * @LastEditTime: 2023-08-09 10:34:27
  */
 
 declare(strict_types=1);
@@ -27,7 +27,7 @@ interface  DeviceServiceInterface
      * @param {string} $type
      * @return {*}
      */
-    public function get_ls(string $type, array $param, array $key = []): array;
+    public function get_ls(string $type, array $param, array $key = [], int $per_page = 10, array $order = [], ?int $page = 0): array;
     /**
      * @author: 风源
      * @name: 获取设备详情
