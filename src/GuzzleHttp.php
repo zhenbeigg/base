@@ -26,7 +26,7 @@ class GuzzleHttp
      * @author: 布尔
      * @name: get请求方法
      * @param string $url 请求地址
-     * @param string $options header参数
+     * @param array $options header参数
      * @param string $method 请求方式
      * @param bool $return_error_msg 返回错误信息
      * @return array
@@ -75,8 +75,8 @@ class GuzzleHttp
      * @author: 布尔
      * @name: post请求方法
      * @param string $url 请求地址
-     * @param string $data body参数
-     * @param string $options header参数
+     * @param array $data body参数
+     * @param array $options header参数
      * @param string $en_type header类型
      * @param string $method 请求方式
      * @param bool $return_error_msg 返回错误信息
