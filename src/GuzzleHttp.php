@@ -107,6 +107,8 @@ class GuzzleHttp
         } elseif ($en_type == "file") {
             $options['headers']['Content-Type'] = 'multipart/form-data';
             $body = ['multipart' => $data];
+        } elseif ($en_type == "form_params") {
+            $body = ['form_params' => $data];
         }
         $client = $this->clientFactory->create($options);
         try {
