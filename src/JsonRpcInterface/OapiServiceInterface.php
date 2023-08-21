@@ -39,4 +39,12 @@ interface  OapiServiceInterface
      * @return {array}
      */
     public function get_all(string $type, array $param, array $key = []): array;
+
+    /**
+     * @author: 风源
+     * @name: 回调授权详情
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_notify_info(array $param): array;
 }

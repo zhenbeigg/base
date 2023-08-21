@@ -64,4 +64,19 @@ class OapiInterface
             error(500, $th->getMessage());
         }
     }
+
+    /**
+     * @author: 布尔
+     * @name: 回调授权详情
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_notify_info(array $param): array
+    {
+        try {
+            return $this->Service->get_notify_info($param);
+        } catch (\Throwable $th) {
+            error(500, $th->getMessage());
+        }
+    }
 }
