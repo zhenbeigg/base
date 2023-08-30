@@ -123,4 +123,11 @@ interface CanyinServiceInterface
      * @return {array}
      */
     public function get_date_repast_dine_data(array $param);
+    /**
+     * @author: 布尔
+     * @name: 支付
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_pay(array $param);
 }

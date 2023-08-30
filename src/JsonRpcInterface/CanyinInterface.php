@@ -172,4 +172,19 @@ class CanyinInterface
     {
         return $this->Service->get_date_repast_dine_data($param);
     }
+
+    /**
+     * @author: 布尔
+     * @name: 支付
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_pay(array $param)
+    {
+        try {
+            return $this->Service->post_pay($param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
 }
