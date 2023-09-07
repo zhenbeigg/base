@@ -187,4 +187,19 @@ class CanyinInterface
             error($e->getCode(), $e->getMessage());
         }
     }
+
+    /**
+     * @author: 布尔
+     * @name: 查询支付订单
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_pay_info(array $param)
+    {
+        try {
+            return $this->Service->get_pay_info($param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
 }

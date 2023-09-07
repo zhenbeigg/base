@@ -130,4 +130,11 @@ interface CanyinServiceInterface
      * @return {array}
      */
     public function post_pay(array $param);
+    /**
+     * @author: 布尔
+     * @name: 查询支付订单详情
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_pay_info(array $param);
 }
