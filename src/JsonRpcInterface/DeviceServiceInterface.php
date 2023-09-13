@@ -169,13 +169,4 @@ interface  DeviceServiceInterface
      * @param {array} $param [corpid:1|机构corpid,type:1|类型,userid:1|用户id,face|人脸信息]
      */
     public function post_face_modify_send(array $param);
-
-    /**
-     * @author: 布尔
-     * @name: 查询access_token
-     * @param {array} $param
-     * @param {string} $type 对应service类  Yilianyun:易联云
-     * @return {array}
-     */
-    public function get_access_token(string $type, array $param);
 }
