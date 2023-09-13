@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 就餐jsonrpc接口类
  * @desc: 介绍
- * @LastEditTime: 2022-11-22 19:34:38
+ * @LastEditTime: 2023-09-08 16:31:26
  */
 
 declare(strict_types=1);
@@ -125,9 +125,16 @@ interface CanyinServiceInterface
     public function get_date_repast_dine_data(array $param);
     /**
      * @author: 布尔
-     * @name: 支付
+     * @name: 三方支付-发起支付
      * @param {array} $param
      * @return {array}
      */
-    public function post_pay(array $param);
+    public function post_pay_scanpay(array $param);
+    /**
+     * @author: 布尔
+     * @name: 三方支付-查询
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_pay_query(array $param);
 }

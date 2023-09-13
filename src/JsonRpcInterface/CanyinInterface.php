@@ -175,14 +175,29 @@ class CanyinInterface
 
     /**
      * @author: 布尔
-     * @name: 支付
+     * @name: 三方支付-发起支付
      * @param {array} $param
      * @return {array}
      */
-    public function post_pay(array $param)
+    public function post_pay_scanpay(array $param)
     {
         try {
-            return $this->Service->post_pay($param);
+            return $this->Service->post_pay_scanpay($param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 三方支付-查询
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_pay_query(array $param)
+    {
+        try {
+            return $this->Service->get_pay_query($param);
         } catch (\Exception $e) {
             error($e->getCode(), $e->getMessage());
         }
