@@ -20,4 +20,13 @@ interface DataServiceInterface
      * @return {array}
      */
     public function get_info(string $type, array $param, array $key = []): array;
+
+    /**
+     * @author: 布尔
+     * @name: 全部
+     * @param {array} $param [fid:1|上级区域id,第一季传0]
+     * @param {string} $type 对应service类 
+     * @return {array}
+     */
+    public function get_all(string $type, array $param, array $key = []): array;
 }

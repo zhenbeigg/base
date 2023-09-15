@@ -33,4 +33,15 @@ class DataInterface
     {
         return $this->Service->get_info($type, $param, $key);
     }
+    /**
+     * @author: 布尔
+     * @name: 全部
+     * @param {array} $param
+     * @param {string} $type 对应service类
+     * @return {array}
+     */
+    public function get_all(string $type, array $param, array $key = []): array
+    {
+        return $this->Service->get_all($type, $param, $key);
+    }
 }
