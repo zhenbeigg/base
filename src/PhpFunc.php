@@ -106,12 +106,12 @@ if (!function_exists('y_str_replace')) {
     /**
      * @author: 布尔
      * @name: 内部定制字符串替换
-     * @param {string} $string 待处理字符串
+     * @param  $string 待处理字符串
      * @param {string} $find 规定要查找的值
      * @param {string} $replace 规定替换 find 中的值的值
      * @return {string} $r
      */
-    function y_str_replace(string $string = '', string $find = '?x-oss-process=image/resize,w_300/format,webp', string $replace = ''): string
+    function y_str_replace($string = '', string $find = '?x-oss-process=image/resize,w_300/format,webp', string $replace = ''): string
     {
         if ($string) {
             return str_replace($find, $replace, $string);
