@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Eykj\Base\JsonRpcInterface;
 
-use Eykj\Base\JsonRpcInterface\WorkServiceInterface;
+use Eykj\Base\JsonRpcInterface\AssetServiceInterface;
 
 class AssetInterface
 {
-    private ?WorkServiceInterface $Service;
+    private ?AssetServiceInterface $Service;
 
     // 通过设置参数为 nullable，表明该参数为一个可选参数
-    public function __construct(?WorkServiceInterface $Service)
+    public function __construct(?AssetServiceInterface $Service)
     {
         $this->Service = $Service;
     }
