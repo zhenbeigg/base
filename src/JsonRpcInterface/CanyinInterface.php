@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 就餐jsonrpc接口类
  * @desc: 介绍
- * @LastEditTime: 2023-07-17 14:59:20
+ * @LastEditTime: 2023-11-17 15:42:53
  */
 
 declare(strict_types=1);
@@ -198,6 +198,51 @@ class CanyinInterface
     {
         try {
             return $this->Service->get_pay_query($param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 访客充值
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_visitor_recharge(array $param)
+    {
+        try {
+            return $this->Service->post_visitor_recharge($param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 访客扣款
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_visitor_deduction(array $param)
+    {
+        try {
+            return $this->Service->post_visitor_deduction($param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
+
+    /**
+     * @author: 布尔
+     * @name: 访客清空余额
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_visitor_empty_balance(array $param)
+    {
+        try {
+            return $this->Service->post_visitor_empty_balance($param);
         } catch (\Exception $e) {
             error($e->getCode(), $e->getMessage());
         }

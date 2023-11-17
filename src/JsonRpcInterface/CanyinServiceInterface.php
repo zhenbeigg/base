@@ -137,4 +137,25 @@ interface CanyinServiceInterface
      * @return {array}
      */
     public function get_pay_query(array $param);
+    /**
+     * @author: 布尔
+     * @name: 访客充值
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_visitor_recharge(array $param);
+    /**
+     * @author: 布尔
+     * @name: 访客扣款
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_visitor_deduction(array $param);
+    /**
+     * @author: 布尔
+     * @name: 访客清空余额
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_visitor_empty_balance(array $param);
 }
