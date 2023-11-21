@@ -27,7 +27,7 @@ abstract class BaseController
     /**
      * @author: 布尔
      * @name: 获取request数据插入数组
-     * @param  string $data 键字符串11111
+     * @param  string $data 键字符串1:不能未定义和为null 2：文件不能为空 3：不能未定义、为null、为空串
      * @param  string $token_key token值键字符串
      * @return array $r 
      */
@@ -50,7 +50,7 @@ abstract class BaseController
                     $key = $cc[0];
                 }
                 /* 毕传参数验证 */
-                if ($c[1] == 1 && ($this->request->input($c[0]) === null || $this->request->input($c[0]) === 'null') && !isset($token[$c[0]]) || $c[1] == 2 && $this->request->file($c[0]) === null) {
+                if ($c[1] == 1 && ($this->request->input($c[0]) === null || $this->request->input($c[0]) === 'null') && !isset($token[$c[0]]) || $c[1] == 2 && $this->request->file($c[0]) === null || $c[1]==3 && empty($this->request->input($c[0])) && !isset($token[$c[0]])) {
                     error(501, '缺少必要参数:' . $c[0]);
                 }
                 $val = $c[0];
