@@ -29,9 +29,10 @@ class GuzzleHttp
      * @param array $options header参数
      * @param string $method 请求方式
      * @param bool $return_error_msg 返回错误信息
+     * @param bool $async 异步
      * @return array
      */
-    public function get(string $url, array $options = [], string $method = 'GET', bool $return_error_msg = false)
+    public function get(string $url, array $options = [], string $method = 'GET', bool $return_error_msg = false,bool $async = false)
     {
         /* 请求节流 */
         if (redis()->get('sleep_time_' . $url)) {
@@ -54,7 +55,12 @@ class GuzzleHttp
         $body = [];
         $client = $this->clientFactory->create($options);
         try {
-            $resp = $client->request($method, $url, $body);
+            /* 判断是不是异步 */
+            if($async){
+                $resp = $client->requestAsync($method, $url, $body);
+            }else{
+                $resp = $client->request($method, $url, $body);
+            }
             $contents = $resp->getBody()->getContents();
             $r = json_decode($contents, true);
             if ($r) {
@@ -80,9 +86,10 @@ class GuzzleHttp
      * @param string $en_type header类型
      * @param string $method 请求方式
      * @param bool $return_error_msg 返回错误信息
+     * @param bool $async 异步
      * @return array
      */
-    public function post(string $url, array $data, array $options = [], string $en_type = 'json', string $method = 'POST', bool $return_error_msg = false)
+    public function post(string $url, array $data, array $options = [], string $en_type = 'json', string $method = 'POST', bool $return_error_msg = false,bool $async = false)
     {
         /* 请求节流 */
         if (redis()->get('sleep_time_' . $url)) {
@@ -112,6 +119,12 @@ class GuzzleHttp
         }
         $client = $this->clientFactory->create($options);
         try {
+            /* 判断是不是异步 */
+            if($async){
+                $resp = $client->requestAsync($method, $url, $body);
+            }else{
+                $resp = $client->request($method, $url, $body);
+            }
             $resp = $client->request($method, $url, $body);
             $contents = $resp->getBody()->getContents();
             $r = json_decode($contents, true);
