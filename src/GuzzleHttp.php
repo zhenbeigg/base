@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: GuzzleHttp请求类
  * @desc: 介绍
- * @LastEditTime: 2023-05-23 16:06:40
+ * @LastEditTime: 2023-12-08 11:18:01
  */
 
 namespace Eykj\Base;
@@ -125,7 +125,6 @@ class GuzzleHttp
             }else{
                 $resp = $client->request($method, $url, $body);
             }
-            $resp = $client->request($method, $url, $body);
             $contents = $resp->getBody()->getContents();
             $r = json_decode($contents, true);
             if ($r) {
