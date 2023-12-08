@@ -27,7 +27,7 @@ class GuzzleHttp
      * @name: get请求方法
      * @param string $url 请求地址
      * @param array $options header参数
-     * @param string $method 请求方式
+     * @param string $method 请求方式 GET DELETE POST PUT
      * @param bool $return_error_msg 返回错误信息
      * @param bool $async 异步
      * @return array
@@ -84,7 +84,7 @@ class GuzzleHttp
      * @param array $data body参数
      * @param array $options header参数
      * @param string $en_type header类型
-     * @param string $method 请求方式
+     * @param string $method 请求方式 GET DELETE POST PUT
      * @param bool $return_error_msg 返回错误信息
      * @param bool $async 异步
      * @return array
