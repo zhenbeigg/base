@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2023-12-26 14:55:21
+ * @LastEditTime: 2023-12-26 14:56:54
  */
 
 declare(strict_types=1);
@@ -687,7 +687,7 @@ if (!function_exists('check_time')) {
      * @name: 检测时间格式是否正确
      * @param {array} $time 传入时间
      * @param {string} $format 时间格式 Y-m-d H:i:s
-     * @return {string} bool
+     * @return {bool} bool
      */
     function check_time($time, $format)
     {
