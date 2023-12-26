@@ -689,7 +689,7 @@ if (!function_exists('check_time')) {
      * @param {string} $format 时间格式 Y-m-d H:i:s
      * @return {bool} bool
      */
-    function check_time($time, $format)
+    function check_time($time, $format = 'Y-m-d H:i:s')
     {
         $dateTime = DateTime::createFromFormat($format, $time);
         return $dateTime && $dateTime->format($format) === $time;
