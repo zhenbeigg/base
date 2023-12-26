@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2023-12-26 14:56:54
+ * @LastEditTime: 2023-07-06 09:36:31
  */
 
 declare(strict_types=1);
@@ -667,6 +667,77 @@ if (!function_exists('amqp_producer')) {
     function amqp_producer()
     {
         return container()->get(Hyperf\Amqp\Producer::class);
+    }
+}
+
+if (!function_exists('redis_get')) {
+    /**
+     * @author: 布尔
+     * @name: 内部定制redis get方法
+     * @param {string} $key key
+     * @param {string} $service 服务
+     * @return  $r
+     */
+    function redis_get(string $key, string $service = '')
+    {
+        return false;
+        if (!$service) {
+            $service = env('APP_NAME');
+        }
+        $cache_key = $service . ':' . $key;
+        return redis()->get($cache_key);
+    }
+}
+
+if (!function_exists('redis_set')) {
+    /**
+     * @author: 布尔
+     * @name: 内部定制redis set方法
+     * @param {string} $key key
+     * @param {string} $value value
+     * @param {int} $time 过期时间
+     * @param {string} $service 服务
+     * @return  $r
+     */
+    function redis_set(string $key, string $value, int $time = 0, string $service = '')
+    {
+        return false;
+        if (!$service) {
+            $service = env('APP_NAME');
+        }
+        $cache_key = $service . ':' . $key;
+        if ($time) {
+            return redis()->set($cache_key, $value, $time);
+        } else {
+            return redis()->set($cache_key, $value);
+        }
+    }
+}
+
+if (!function_exists('redis_del')) {
+    /**
+     * @author: 布尔
+     * @name: 内部定制redis del方法
+     * @param {string} $key key
+     * @param {string} $service 服务
+     * @return  $r
+     */
+    function redis_del(string $key, string $service = '')
+    {
+        return false;
+        if (!$service) {
+            $service = env('APP_NAME');
+        }
+        $cache_key = $service . ':' . $key;
+        $iterator = null;
+        $del_cache_key = [];
+        do {
+            $keys = redis()->scan($iterator, $cache_key); // 使用SCAN命令迭代元素
+            if ($keys) {
+                $del_cache_key = array_merge($del_cache_key, $keys);
+            }
+        } while ($iterator > 0);
+        return redis()->del($del_cache_key);
     }
 }
 
