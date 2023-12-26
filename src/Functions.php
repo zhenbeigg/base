@@ -659,28 +659,6 @@ if (!function_exists('get_md5_sign')) {
     }
 }
 
-if (!function_exists('amqp_producer')) {
-    /**
-     * Amqp Producer 客户端实例
-     * @return \Hyperf\Amqp\Producer|mixed
-     */
-    function amqp_producer()
-    {
-        return container()->get(Hyperf\Amqp\Producer::class);
-    }
-}
-
-if (!function_exists('amqp_producer')) {
-    /**
-     * Amqp Producer 客户端实例
-     * @return \Hyperf\Amqp\Producer|mixed
-     */
-    function amqp_producer()
-    {
-        return container()->get(Hyperf\Amqp\Producer::class);
-    }
-}
-
 if (!function_exists('check_time')) {
     /**
      * @author: 布尔
