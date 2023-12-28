@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 接口基类
  * @desc: 介绍
- * @LastEditTime: 2022-12-19 11:27:26
+ * @LastEditTime: 2023-12-28 19:22:24
  */
 
 declare(strict_types=1);
@@ -44,18 +44,27 @@ abstract class BaseController
                 $key = $c[0];
                 /* 判断是否重命名变量 */
                 if (substr_count($c[0], "|")) {
-                    $cc = $c = explode("|", $c[0]);
+                    $cc = explode("|", $c[0]);
                     $c[0] = $cc[1];
                     /* 定义新的key */
                     $key = $cc[0];
                 }
                 /* 毕传参数验证 */
-                if ($c[1] == 1 && ($this->request->input($c[0]) === null || $this->request->input($c[0]) === 'null') && !isset($token[$c[0]]) || $c[1] == 2 && $this->request->file($c[0]) === null || $c[1]==3 && empty($this->request->input($c[0])) && !isset($token[$c[0]])) {
+                if ($c[1] == 1 && ($this->request->input($c[0]) === null || $this->request->input($c[0]) === 'null') && !isset($token[$c[0]]) || $c[1] == 2 && $this->request->file($c[0]) === null || $c[1] == 3 && empty($this->request->input($c[0])) && !isset($token[$c[0]])) {
                     error(501, '缺少必要参数:' . $c[0]);
                 }
                 $val = $c[0];
             } else {
-                $key = $val;
+                /* 判断是否重命名变量 */
+                if (substr_count($val, "|")) {
+                    $cc = explode("|", $val);
+                    /* 定义新的key */
+                    $key = $cc[0];
+                    /* 重新定制值名称 */
+                    $val = $cc[1];
+                } else {
+                    $key = $val;
+                }
             }
             /* 判断是不是文件上传 */
             if ($key == 'file') {
