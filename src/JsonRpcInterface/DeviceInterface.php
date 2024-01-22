@@ -220,4 +220,13 @@ class DeviceInterface
     {
         return $this->Service->post_face_modify_send($param);
     }
+    /**
+     * @author: 布尔
+     * @name: 打印
+     * @param {array} $param
+     */
+    public function post_printer(array $param)
+    {
+        return $this->Service->post_printer($param);
+    }
 }

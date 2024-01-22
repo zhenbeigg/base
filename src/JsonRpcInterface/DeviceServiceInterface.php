@@ -169,4 +169,11 @@ interface  DeviceServiceInterface
      * @param {array} $param [corpid:1|机构corpid,type:1|类型,userid:1|用户id,face|人脸信息]
      */
     public function post_face_modify_send(array $param);
+
+    /**
+     * @author: 布尔
+     * @name: 打印
+     * @param {array} $param
+     */
+    public function post_printer(array $param);
 }
