@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2023-07-06 09:36:31
+ * @LastEditTime: 2024-01-29 09:26:50
  */
 
 declare(strict_types=1);
@@ -522,14 +522,14 @@ if (!function_exists('set_config')) {
 
 if (!function_exists('download_remote_file')) {
     /**
-     * @brief 下载远程问价至本地返回文件本地相对路径
+     * @brief 下载远程文件至本地返回文件本地相对路径
      * @param string $file 远程文件
      * @param string $download_path 文件本地存储相对路径
      * @param string $file_name 文件名称
      * @param string $val 值
      * @return {*} $r
      */
-    function download_remote_file(string $file, string $download_path = '/public/upload', string $file_name = ''): string
+    function download_remote_file(string $file, string $download_path = '/public/download', string $file_name = ''): string
     {
         /* 判断目录是否存在 */
         $dir = BASE_PATH . $download_path;
