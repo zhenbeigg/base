@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 授权中心
  * @desc: 介绍
- * @LastEditTime: 2022-09-05 18:54:15
+ * @LastEditTime: 2024-02-22 13:53:14
  */
 
 declare(strict_types=1);
@@ -47,7 +47,7 @@ class AuthInterface
     public function get_suite_token(string $type, array $param)
     {
         try {
-            return $this->Service->get_access_token($type, $param);
+            return $this->Service->get_suite_token($type, $param);
         } catch (\Exception $e) {
             error($e->getCode(), $e->getMessage());
         }
