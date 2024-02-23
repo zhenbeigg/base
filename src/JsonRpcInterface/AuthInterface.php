@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 授权中心
  * @desc: 介绍
- * @LastEditTime: 2024-02-22 13:53:14
+ * @LastEditTime: 2024-02-23 09:55:30
  */
 
 declare(strict_types=1);
@@ -25,8 +25,8 @@ class AuthInterface
     /**
      * @author: 布尔
      * @name: 获取token
-     * @param {array} $param
      * @param {string} $type 对应service类  Dtalk:钉钉 Modian:魔点
+     * @param {array} $param
      * @return {array}
      */
     public function get_access_token(string $type, array $param)
@@ -40,14 +40,29 @@ class AuthInterface
     /**
      * @author: 布尔
      * @name: 获取第三方应用凭证
-     * @param {array} $param
      * @param {string} $type 对应service类  Dtalk:钉钉 Modian:魔点
+     * @param {array} $param
      * @return {array}
      */
     public function get_suite_token(string $type, array $param)
     {
         try {
             return $this->Service->get_suite_token($type, $param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
+    /**
+     * @author: 布尔
+     * @name: 服务商的token
+     * @param {string} $type 对应service类  Dtalk:钉钉 Modian:魔点
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_provider_token(string $type, array $param)
+    {
+        try {
+            return $this->Service->get_provider_token($type, $param);
         } catch (\Exception $e) {
             error($e->getCode(), $e->getMessage());
         }
