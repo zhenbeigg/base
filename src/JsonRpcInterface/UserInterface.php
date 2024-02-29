@@ -367,4 +367,18 @@ class UserInterface
             return [];
         }
     }
+    /**
+     * @author: 布尔
+     * @name: 成员、部门变更通知
+     * @param {string} $type
+     * @return {array}
+     */
+    public function post_change_contact(array $param): void
+    {
+        try {
+            return $this->Service->post_change_contact($param);
+        } catch (\Exception $e) {
+            alog($e->getMessage(), 2);
+        }
+    }
 }

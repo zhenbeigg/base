@@ -200,6 +200,7 @@ interface UserServiceInterface
      * @author: 布尔
      * @name: 在线支付
      * @param {string} $type
+     * @param {array} $param
      * @return {array}
      */
     public function post_pay(string $type, array $param): array;
@@ -208,7 +209,14 @@ interface UserServiceInterface
      * @author: 布尔
      * @name: 解码
      * @param {string} $type
+     * @param {array} $param
      * @return {array}
      */
     public function post_decode(string $type, array $param): array;
+    /**
+     * @author: 布尔
+     * @name: 成员、部门变更通知
+     * @param {array} $param
+     */
+    public function post_change_contact(array $param): void;
 }
