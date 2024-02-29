@@ -376,7 +376,7 @@ class UserInterface
     public function post_change_contact(array $param): void
     {
         try {
-            return $this->Service->post_change_contact($param);
+            $this->Service->post_change_contact($param);
         } catch (\Exception $e) {
             alog($e->getMessage(), 2);
         }
