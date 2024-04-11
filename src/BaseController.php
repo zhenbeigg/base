@@ -50,7 +50,7 @@ abstract class BaseController
                     $key = $cc[0];
                 }
                 /* 毕传参数验证 */
-                if ($c[1] == 1 && ($this->request->input($c[0]) === null || $this->request->input($c[0]) === 'null') && !isset($token[$c[0]]) || $c[1] == 2 && $this->request->file($c[0]) === null || $c[1] == 3 && empty($this->request->input($c[0])) && !isset($token[$c[0]])) {
+                if ($c[1] == 1 && ($this->request->input($c[0]) === null || $this->request->input($c[0]) === 'null') && !isset($token[$c[0]]) || $c[1] == 2 && $this->request->file($c[0]) === null || $c[1] == 3 && ($this->request->input($c[0]) === null || $this->request->input($c[0]) === 'null' || $this->request->input($c[0]) === '') && !isset($token[$c[0]])) {
                     error(501, '缺少必要参数:' . $c[0]);
                 }
                 $val = $c[0];
