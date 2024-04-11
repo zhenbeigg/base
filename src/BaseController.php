@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 接口基类
  * @desc: 介绍
- * @LastEditTime: 2023-12-28 19:22:24
+ * @LastEditTime: 2024-04-11 15:02:12
  */
 
 declare(strict_types=1);
@@ -72,7 +72,7 @@ abstract class BaseController
                 /* 判断是不是分页字段 */
             } elseif ($key == 'per_page') {
                 $arr[$key] = $this->request->input($val) ?: 10;
-            } elseif ($this->request->input($val) !== null && $this->request->input($val) !== 'null' && $this->request->input($val) !== '') {
+            } elseif ($this->request->input($val) !== null && $this->request->input($val) !== 'null') {
                 $arr[$key] = y_trim($this->request->input($val));
             }
         }
