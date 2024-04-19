@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2024-01-29 09:26:50
+ * @LastEditTime: 2024-04-19 10:44:23
  */
 
 declare(strict_types=1);
@@ -394,7 +394,13 @@ if (!function_exists('get_number')) {
      */
     function get_number($prefix = ''): string
     {
-        return $prefix . date('YmdHis', time()) . mt_rand(111111, 999999);
+        $number = $prefix . date('YmdHis', time()) . mt_rand(111111, 999999);
+        /* 检测一秒内是否重复 */
+        do {
+            $number = $prefix . date('YmdHis', time()) . mt_rand(111111, 999999);
+        } while (redis()->get($number));
+        redis()->set($number, 1, 1);
+        return $number;
     }
 }
 
@@ -412,6 +418,16 @@ if (!function_exists('get_rand_str')) {
         for ($i = 0; $i < $length; $i++) {
             $str .= $strPol[rand(0, $max)]; //rand($min,$max)生成介于min和max两个数之间的一个随机整数
         }
+        /* 检测一秒内是否重复 */
+        do {
+            $str = '';
+            $strPol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            $max = strlen($strPol) - 1;
+            for ($i = 0; $i < $length; $i++) {
+                $str .= $strPol[rand(0, $max)]; //rand($min,$max)生成介于min和max两个数之间的一个随机整数
+            }
+        } while (redis()->get($str));
+        redis()->set($str, 1, 1);
         return $str;
     }
 }
