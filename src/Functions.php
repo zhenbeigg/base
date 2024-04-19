@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2024-04-19 10:44:23
+ * @LastEditTime: 2024-04-19 11:08:58
  */
 
 declare(strict_types=1);
@@ -394,11 +394,11 @@ if (!function_exists('get_number')) {
      */
     function get_number($prefix = ''): string
     {
-        $number = $prefix . date('YmdHis', time()) . mt_rand(111111, 999999);
-        /* 检测一秒内是否重复 */
         do {
             $number = $prefix . date('YmdHis', time()) . mt_rand(111111, 999999);
+            /* 检测一秒内是否重复 */
         } while (redis()->get($number));
+        /* 插入一秒缓存 */
         redis()->set($number, 1, 1);
         return $number;
     }
@@ -412,21 +412,16 @@ if (!function_exists('get_rand_str')) {
      */
     function get_rand_str($length = 32): string
     {
-        $str = '';
-        $strPol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
-        $max = strlen($strPol) - 1;
-        for ($i = 0; $i < $length; $i++) {
-            $str .= $strPol[rand(0, $max)]; //rand($min,$max)生成介于min和max两个数之间的一个随机整数
-        }
-        /* 检测一秒内是否重复 */
         do {
             $str = '';
-            $strPol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
-            $max = strlen($strPol) - 1;
+            $str_pol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            $max = strlen($str_pol) - 1;
             for ($i = 0; $i < $length; $i++) {
-                $str .= $strPol[rand(0, $max)]; //rand($min,$max)生成介于min和max两个数之间的一个随机整数
+                $str .= $str_pol[rand(0, $max)]; //rand($min,$max)生成介于min和max两个数之间的一个随机整数
             }
+            /* 检测一秒内是否重复 */
         } while (redis()->get($str));
+        /* 插入一秒缓存 */
         redis()->set($str, 1, 1);
         return $str;
     }
