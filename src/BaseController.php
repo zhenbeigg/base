@@ -29,10 +29,10 @@ abstract class BaseController
      * @name: 获取request数据插入数组
      * @param  string $data 键字符串1:不能 未定义和为null 2：文件不能为空 3：不能 未定义、为null、为空串
      * @param  string $token_key token值键字符串
-     * @param  bool $take_empty 是否取空值，默认取值
+     * @param  bool $take_empty 是否取空值，默认不取值
      * @return array $r 
      */
-    public function eyd(string $qr_key = "", string $token_key = "", bool $take_empty = true): array
+    public function eyd(string $qr_key = "", string $token_key = "", bool $take_empty = false): array
     {
         /* 获取token */
         $token = get('token') ?? [];
