@@ -29,9 +29,10 @@ abstract class BaseController
      * @name: 获取request数据插入数组
      * @param  string $data 键字符串1:不能 未定义和为null 2：文件不能为空 3：不能 未定义、为null、为空串
      * @param  string $token_key token值键字符串
+     * @param  bool $take_empty 是否取空值，默认取值
      * @return array $r 
      */
-    public function eyd(string $qr_key = "", string $token_key = ""): array
+    public function eyd(string $qr_key = "", string $token_key = "", bool $take_empty = true): array
     {
         /* 获取token */
         $token = get('token') ?? [];
@@ -66,13 +67,13 @@ abstract class BaseController
                     $key = $val;
                 }
             }
-            /* 判断是不是文件上传 */
-            if ($key == 'file') {
+            if ($key == 'file') { /* 判断是不是文件上传 */
                 $arr[$key] = $this->request->file($val);
-                /* 判断是不是分页字段 */
-            } elseif ($key == 'per_page') {
+            } elseif ($key == 'per_page') {/* 判断是不是分页字段 */
                 $arr[$key] = $this->request->input($val) ?: 10;
-            } elseif ($this->request->input($val) !== null && $this->request->input($val) !== 'null') {
+            } elseif ($this->request->input($val) !== null && $this->request->input($val) !== 'null' && $take_empty == true) {/* 取空值模式下取值 */
+                $arr[$key] = y_trim($this->request->input($val));
+            } elseif ($this->request->input($val) !== null && $this->request->input($val) !== 'null' && $take_empty == false && $this->request->input($val) !== '') {/* 不取空值模式下取值 */
                 $arr[$key] = y_trim($this->request->input($val));
             }
         }
