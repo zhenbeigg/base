@@ -776,7 +776,7 @@ if (!function_exists('check_mobile')) {
      */
     function check_mobile($mobile)
     {
-        // 中国手机号通常以1开头，第二位是3,4,5,7,8,9中的一个，后面跟着9个数字
+        // 中国手机号通常以1开头，第二位是3,4,5,6,7,8,9中的一个，后面跟着9个数字
         $pattern = '/^1[3456789]\d{9}$/';
         if (preg_match($pattern, $mobile)) {
             return true;
