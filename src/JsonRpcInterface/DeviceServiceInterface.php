@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 设备中心jsonrpc接口类
  * @desc: 介绍
- * @LastEditTime: 2023-08-09 10:34:27
+ * @LastEditTime: 2024-09-20 17:26:35
  */
 
 declare(strict_types=1);
@@ -176,4 +176,12 @@ interface  DeviceServiceInterface
      * @param {array} $param
      */
     public function post_printer(array $param);
+    /**
+     * @author: 布尔
+     * @name: 查询access_token
+     * @param {string} $type 对应service类 对应service类  Dtalk:钉钉 Modian:魔点
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_access_token(string $type, array $param);
 }

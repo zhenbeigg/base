@@ -229,4 +229,19 @@ class DeviceInterface
     {
         return $this->Service->post_printer($param);
     }
+    /**
+     * @author: 布尔
+     * @name: 获取token
+     * @param {string} $type 对应service类  Dtalk:钉钉 Modian:魔点
+     * @param {array} $param
+     * @return {array}
+     */
+    public function get_access_token(string $type, array $param)
+    {
+        try {
+            return $this->Service->get_access_token($type, $param);
+        } catch (\Exception $e) {
+            error($e->getCode(), $e->getMessage());
+        }
+    }
 }
