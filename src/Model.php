@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 数据模型类
  * @desc: 介绍
- * @LastEditTime: 2023-07-28 20:50:35
+ * @LastEditTime: 2024-10-28 19:53:04
  * @FilePath: \base\src\Model.php
  */
 
@@ -40,7 +40,8 @@ abstract class Model extends BaseModel
      * @param string $target_table 目标表
      * @param string $table_comment 表注解
      */
-    public function post_create_table(string $table_name,string $target_table,string $table_comment) {
+    public function post_create_table(string $table_name, string $target_table, string $table_comment)
+    {
         if (!Schema::hasTable($table_name)) {
             /* 查询目标表结构 */
             $table_type_list = Schema::getColumnTypeListing($target_table);
@@ -138,9 +139,11 @@ abstract class Model extends BaseModel
      * @param array $or_having_raw  原生分组筛选
      * @param string $select_raw  原生select
      * @param cache_switch $true 是否开启缓存
+     * @param bool $shared_lock 共享锁 
+     * @param bool $lock_for_update 排他锁
      * @return array $r  返回数据
      */
-    public function get_ls(array $filter = [], array $key = [], int $per_page = 10, array $order = [], ?int $page = 0, string|bool $distinct = false, array $add_select = [], string|array $group = '', array $having = [], array $having_raw = [], array $or_having_raw = [], string $select_raw = '', bool $cache_switch = true): array
+    public function get_ls(array $filter = [], array $key = [], int $per_page = 10, array $order = [], ?int $page = 0, string|bool $distinct = false, array $add_select = [], string|array $group = '', array $having = [], array $having_raw = [], array $or_having_raw = [], string $select_raw = '', bool $cache_switch = true, bool $shared_lock = false, bool $lock_for_update = false): array
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
@@ -224,6 +227,12 @@ abstract class Model extends BaseModel
         } else {
             $query = $query->orderBy('id', 'desc');
         }
+        if ($shared_lock) {
+            $query = $query->sharedLock();
+        }
+        if ($lock_for_update) {
+            $query = $query->lockForUpdate();
+        }
         if ($distinct) {
             $query = $query->distinct();
         }
@@ -272,9 +281,11 @@ abstract class Model extends BaseModel
      * @param string $offset  跳过数量
      * @param string $limit  取数量
      * @param cache_switch $true 是否开启缓存
+     * @param bool $shared_lock 共享锁 
+     * @param bool $lock_for_update 排他锁
      * @return array $r  返回数据
      */
-    public function get_all(array $filter = [], array $key = [], array $order = [], string|bool $distinct = false, array $add_select = [], string|array $group = '', array $having = [], array $having_raw = [], array $or_having_raw = [], string $select_raw = '', int $offset = 0, int $limit = 0, bool $cache_switch = true): array
+    public function get_all(array $filter = [], array $key = [], array $order = [], string|bool $distinct = false, array $add_select = [], string|array $group = '', array $having = [], array $having_raw = [], array $or_having_raw = [], string $select_raw = '', int $offset = 0, int $limit = 0, bool $cache_switch = true, bool $shared_lock = false, bool $lock_for_update = false): array
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
@@ -282,7 +293,7 @@ abstract class Model extends BaseModel
             unset($filter["keyword"]);
         }
         /* 判断是否开启缓存 */
-        if ($cache_switch) {
+        if (!$shared_lock && !$lock_for_update && $cache_switch) {
             /* 查询缓存 */
             $cache_key = [];
             if ($filter) {
@@ -363,10 +374,16 @@ abstract class Model extends BaseModel
         } else {
             $query = $query->orderBy('id', 'desc');
         }
+        if ($shared_lock) {
+            $query = $query->sharedLock();
+        }
+        if ($lock_for_update) {
+            $query = $query->lockForUpdate();
+        }
         $query = $distinct ? $query->distinct()->get() : $query->get();
         $r = $query ? $query->toArray() : [];
         /* 判断是否开启缓存 */
-        if ($cache_switch) {
+        if (!$shared_lock && !$lock_for_update && $cache_switch) {
             /* 写入缓存 */
             $this->set_cache('all', $cache_key, $r);
         }
