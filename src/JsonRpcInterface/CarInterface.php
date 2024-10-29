@@ -156,4 +156,15 @@ class CarInterface
     {
         return $this->Service->get_date_log_data($param);
     }
+
+    /**
+     * @author: 布尔
+     * @name: 车位申请审批oa回调
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_seat_apply_nodify(array $param)
+    {
+        return $this->Service->post_seat_apply_nodify($param);
+    }
 }

@@ -112,4 +112,12 @@ interface CarServiceInterface
      * @return {array}
      */
     public function get_date_log_data(array $param);
+
+    /**
+     * @author: 布尔
+     * @name: 车位申请审批oa回调
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_seat_apply_nodify(array $param);
 }
