@@ -507,9 +507,9 @@ abstract class Model extends BaseModel
      * @param array $filter   查询条件
      * @param string|bool $distinct   是否去重
      * @param string|array $group   分组
-     * @return int|null|array $r 返回数据
+     * @return int|null $r 返回数据
      */
-    public function get_count(array $filter, string|bool $distinct = false, string|array $group = ''): int|null|array
+    public function get_count(array $filter, string|bool $distinct = false, string|array $group = ''): int|null
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
@@ -517,7 +517,7 @@ abstract class Model extends BaseModel
         if ($group) {
             $query = $query->groupBy($group);
         }
-        return $distinct ? $query->distinct()->count() : $query->count();
+        return $distinct ? $query->distinct($distinct)->count() : $query->count();
     }
 
     /**
