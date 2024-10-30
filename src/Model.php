@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 数据模型类
  * @desc: 介绍
- * @LastEditTime: 2024-10-28 19:53:04
+ * @LastEditTime: 2024-10-30 18:39:19
  * @FilePath: \base\src\Model.php
  */
 
@@ -517,7 +517,7 @@ abstract class Model extends BaseModel
         if ($group) {
             $query = $query->groupBy($group);
         }
-        return $distinct ? $query->distinct()->count($distinct) : $query->count();
+        return $distinct ? $query->distinct()->count() : $query->count();
     }
 
     /**
