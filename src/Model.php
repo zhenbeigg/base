@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 数据模型类
  * @desc: 介绍
- * @LastEditTime: 2024-10-30 18:39:19
+ * @LastEditTime: 2024-10-30 18:53:53
  * @FilePath: \base\src\Model.php
  */
 
@@ -507,9 +507,9 @@ abstract class Model extends BaseModel
      * @param array $filter   查询条件
      * @param string|bool $distinct   是否去重
      * @param string|array $group   分组
-     * @return int|null $r 返回数据
+     * @return int|null|array $r 返回数据
      */
-    public function get_count(array $filter, string|bool $distinct = false, string|array $group = ''): int|null
+    public function get_count(array $filter, string|bool $distinct = false, string|array $group = ''): int|null|array
     {
         /* 检测是否拆分表 */
         $this->post_split_table($filter);
