@@ -247,4 +247,14 @@ class CanyinInterface
             error($e->getCode(), $e->getMessage());
         }
     }
+
+    /**
+     * @author: 布尔
+     * @name: 用户离职
+     * @param {array} $param
+     */
+    public function post_user_leave(array $param)
+    {
+        return $this->Service->post_user_leave($param);
+    }
 }

@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 就餐jsonrpc接口类
  * @desc: 介绍
- * @LastEditTime: 2023-09-08 16:31:26
+ * @LastEditTime: 2024-11-22 16:31:00
  */
 
 declare(strict_types=1);
@@ -158,4 +158,17 @@ interface CanyinServiceInterface
      * @return {array}
      */
     public function post_visitor_empty_balance(array $param);
+    /**
+     * @author: 布尔
+     * @name: 访客清空余额
+     * @param {array} $param
+     * @return {array}
+     */
+    public function post_visitor_empty_balance(array $param);
+    /**
+     * @author: 布尔
+     * @name: 用户离职
+     * @param {array} $param
+     */
+    public function post_user_leave(array $param);
 }
