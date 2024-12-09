@@ -3,7 +3,7 @@
  * @author: 布尔
  * @name: 通用函数
  * @desc: 介绍
- * @LastEditTime: 2024-04-29 14:11:37
+ * @LastEditTime: 2024-12-09 13:58:07
  */
 
 declare(strict_types=1);
@@ -783,5 +783,25 @@ if (!function_exists('check_mobile')) {
         } else {
             return false;
         }
+    }
+}
+
+if (!function_exists('camel_to_snake')) {
+    /**
+     * @author: 布尔
+     * @name: 将数组驼峰命名的key转为蛇形
+     * @param {array} $mobile 手机号
+     * @return {array} $r
+     */
+    function camel_to_snake($data)
+    {
+        if (is_array($data)) {
+            return array_map(function ($item) {
+                return camel_to_snake($item);
+            }, $data);
+        } elseif (is_string($data)) {
+            return preg_replace('/(?<!^)[A-Z]/', '_$0', lcfirst($data));
+        }
+        return $data;
     }
 }
