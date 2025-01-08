@@ -690,6 +690,7 @@ if (!function_exists('redis_get')) {
      */
     function redis_get(string $key)
     {
+        return false;
         return redis()->get($key);
     }
 }
@@ -705,6 +706,7 @@ if (!function_exists('redis_set')) {
      */
     function redis_set(string $key, string $value, int $time = 0)
     {
+        return false;
         if ($time) {
             return redis()->set($key, $value, $time);
         } else {
@@ -722,6 +724,7 @@ if (!function_exists('redis_del')) {
      */
     function redis_del(string $key)
     {
+        return false;
         return redis()->del($key);
     }
 }
