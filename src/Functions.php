@@ -613,12 +613,12 @@ if (!function_exists('download')) {
 if (!function_exists('string_character_handle')) {
     /**
      * @brief 字符串特殊符号处理函数
-     * @param string $string 输入字符串
+     * @param array|string $string 输入字符串或数组
      * @param bool $replace 是否替换,替换模式返回替换后字符串,不替换返回是否包含特殊字符
-     * @param bool $replacement 用于替换的字符串
+     * @param array|string $replacement 用于替换的字符串或数组
      * @return mixed $r 返回数据
      */
-    function string_character_handle(string $string, $replace = false, string $replacement = ""): string|bool
+    function string_character_handle(array|string $string, $replace = false, array|string $replacement = ""): array|string|bool
     {
         //中文标点
         $char = "。、！？：；﹑•＂…‘’“”〝〞∕¦‖—　〈〉﹞﹝「」‹›〖〗】【»«』『〕〔》《﹐¸﹕︰﹔！¡？¿﹖﹌﹏﹋＇´ˊˋ―﹫︳︴¯＿￣﹢﹦﹤‐­˜﹟﹩﹠﹪﹡﹨﹍﹉﹎﹊ˇ︵︶︷︸︹︿﹀︺︽︾ˉ﹁﹂﹃﹄︻︼（）";
