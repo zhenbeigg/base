@@ -4,7 +4,7 @@
  * @author: 布尔
  * @name: 用户中心jsonrpc接口类
  * @desc: 介绍
- * @LastEditTime: 2023-01-02 16:32:33
+ * @LastEditTime: 2024-12-31 12:17:53
  */
 
 declare(strict_types=1);
@@ -313,13 +313,14 @@ class UserInterface
     /**
      * @author: 布尔
      * @name: 扣款
+     * @param {string} $type 类型 User 用户 Visitor 访客
      * @param {array} $param
      * @return {array}
      */
-    public function post_debit(array $param): array
+    public function post_debit(string $type,array $param): array
     {
         try {
-            return $this->Service->post_debit($param);
+            return $this->Service->post_debit($type,$param);
         } catch (\Exception $e) {
             error($e->getCode(), $e->getMessage());
         }
@@ -327,13 +328,14 @@ class UserInterface
     /**
      * @author: 布尔
      * @name: 退款
+     * @param {string} $type 类型  User 用户 Visitor 访客
      * @param {array} $param
      * @return {array}
      */
-    public function post_refund(array $param): array
+    public function post_refund(string $type,array $param): array
     {
         try {
-            return $this->Service->post_refund($param);
+            return $this->Service->post_refund($type,$param);
         } catch (\Exception $e) {
             error($e->getCode(), $e->getMessage());
         }
