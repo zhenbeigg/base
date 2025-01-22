@@ -3,8 +3,8 @@
  * @author: 布尔
  * @name: 中间件-验证token
  * @desc: 介绍
- * @LastEditTime: 2025-01-22 12:00:49
- * @FilePath: \eyc3_oapi\vendor\eykj\base\src\Middleware\OTokenMiddleware.php
+ * @LastEditTime: 2025-01-22 16:58:25
+ * @FilePath: \base\src\Middleware\OTokenMiddleware.php
  */
 
 declare(strict_types=1);
