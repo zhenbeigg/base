@@ -3,8 +3,8 @@
  * @author: 布尔
  * @name: 中间件-验证token
  * @desc: 介绍
- * @LastEditTime: 2023-08-31 16:50:29
- * @FilePath: \base\src\Middleware\OTokenMiddleware.php
+ * @LastEditTime: 2025-01-22 12:00:49
+ * @FilePath: \eyc3_oapi\vendor\eykj\base\src\Middleware\OTokenMiddleware.php
  */
 
 declare(strict_types=1);
@@ -46,15 +46,28 @@ class OTokenMiddleware implements MiddlewareInterface
     {
         // 根据具体业务判断逻辑走向，这里假设用户携带的token有效        
         $jwt = $this->request->input('token');
-        $token = redis()->get("token_".$jwt);
-        if($token){
-            $token=json_decode($token,true);
-            set('token',$token);
-            set('corpid',$token['corpid']);
+        $token = redis()->get("token_" . $jwt);
+        if ($token) {
+            $token = json_decode($token, true);
+            set('token', $token);
+            set('corpid', $token['corpid']);
+            /* 获取企业ID的访问次数 */
+            $redis_key = 'visit_limit:' . $token['corpid'];
+            $count = redis()->get($redis_key);
+            if ($count === false) {
+                /* 如果是第一次访问,设置初始值为1,过期时间1秒 */
+                redis()->setex($redis_key, 1, 1);
+            } else {
+                /* 判断访问次数是否超过限制 */
+                if ((int)$count >= 20) {
+                    error(16005);
+                }
+                /* 增加访问次数 */
+                redis()->incr($redis_key);
+            }
             return $handler->handle($request);
-        }else{
+        } else {
             error(504);
         }
-        
     }
 }
