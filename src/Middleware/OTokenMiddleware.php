@@ -62,8 +62,11 @@ class OTokenMiddleware implements MiddlewareInterface
                 if ((int)$count >= 20) {
                     error(16005);
                 }
-                /* 增加访问次数 */
-                redis()->incr($redis_key);
+                /* 增加访问次数并重新设置过期时间 */
+                redis()->multi()
+                    ->incr($redis_key)
+                    ->expire($redis_key, 1)
+                    ->exec();
             }
             return $handler->handle($request);
         } else {
